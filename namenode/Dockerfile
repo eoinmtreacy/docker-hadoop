@@ -8,9 +8,11 @@ ENV HDFS_CONF_dfs_namenode_name_dir=file:///hadoop/dfs/name
 RUN mkdir -p /hadoop/dfs/name
 VOLUME /hadoop/dfs/name
 
-RUN curl -O  https://dlcdn.apache.org/pig/pig-0.17.0/pig-0.17.0.tar.gz && \
-    tar -xzvf pig-0.17.0.tar.gz  
-    rm pig-0.17.0-src.tar.gz && \
+RUN curl -O  https://dlcdn.apache.org/pig/pig-0.17.0/pig-0.17.0.tar.gz
+    
+RUN tar -xzvf pig-0.17.0.tar.gz
+RUN rm pig-0.17.0.tar.gz 
+    # && \
     # ln -s /usr/local/pig-0.17.0 /usr/local/pig
     
 ENV PATH=$PATH:/usr/local/pig/bin
