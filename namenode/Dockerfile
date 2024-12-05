@@ -8,12 +8,13 @@ ENV HDFS_CONF_dfs_namenode_name_dir=file:///hadoop/dfs/name
 RUN mkdir -p /hadoop/dfs/name
 VOLUME /hadoop/dfs/name
 
+# download pig
 RUN curl -O  https://dlcdn.apache.org/pig/pig-0.17.0/pig-0.17.0.tar.gz
-    
-RUN tar -xzvf pig-0.17.0.tar.gz
+
+# extract and make symbolic link
+RUN tar -xzvf pig-0.17.0.tar.gz -C /usr/local/
 RUN rm pig-0.17.0.tar.gz 
-    # && \
-    # ln -s /usr/local/pig-0.17.0 /usr/local/pig
+RUN ln -s /usr/local/pig-0.17.0 /usr/local/pig
     
 ENV PATH=$PATH:/usr/local/pig/bin
 
