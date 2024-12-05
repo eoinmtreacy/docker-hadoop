@@ -1,3 +1,5 @@
+SET mapreduce.job.complete.cancel.delegation.tokens false;
+
 -- Load the data
 heart_data = LOAD '/heart.csv' USING PigStorage(',')
     AS (id:int, age:int, sex:int, cp:int, trestbps:int, chol:int, fbs:int, restecg:int, thalach:int, exang:int, oldpeak:float, slope:int, ca:int, thal:int, target:int);
